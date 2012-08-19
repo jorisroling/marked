@@ -2,8 +2,15 @@
 
 var fs = require('fs')
   , path = require('path')
-  , marked = require('marked')
+  , marked = require('../index')
   , dir = __dirname + '/tests';
+
+// JJR
+marked.plugins = {
+  youtube: function(arg) {
+    return '<iframe class="youtube" src="https://www.youtube.com/embed/' + arg + '"></iframe>';
+  }
+};
 
 var BREAK_ON_ERROR = false;
 
